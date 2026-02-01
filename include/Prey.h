@@ -1,9 +1,11 @@
-#pragma once
+#ifndef PREY_H
+#define PREY_H
 #include "Entity.h"
 using namespace std;
 
 class Prey:public Entity{
     public:
         Prey(const string& name);
-        void update(double dt) override;
+        void update() override;
 };
+#endif

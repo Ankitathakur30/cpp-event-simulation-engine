@@ -1,22 +1,16 @@
-#include <iostream>
 #include <memory>
-
-#include "Entity.h"
-#include "Predator.h"
+#include "world.h"
+#include "predator.h"
 #include "Prey.h"
 
 using namespace std;
 
 int main(){
-    cout<<"Simulation Starting..."<<endl;
+    World World;
 
-    unique_ptr<Entity> e1=make_unique<Predator>("Predator 1");
-    unique_ptr<Entity> e2=make_unique<Prey>("Prey 1");
-
-    e1->update(1.0);
-    e2->update(1.0);
-    
-    cout<<"Simulation shutdown."<<endl;
+    World.addEntity(make_unique<Predator>("Predator#1"));
+    World.addEntity(make_unique<Prey>("Prey#1"));
+    World.run(3);
 
     return 0;
 }
